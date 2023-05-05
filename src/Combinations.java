@@ -21,7 +21,6 @@ public class Combinations {
         }
         return final_list;
     }
-    //public static subsets()
 
     public static void main(String[] args) {
         System.out.println(combine(4,2));
