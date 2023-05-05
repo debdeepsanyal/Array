@@ -14,8 +14,8 @@ public class Combinations {
                 list1.add(temp);
             }
         }
-        for(int i = 0; i<list1.size(); i++){
-            if(list1.get(i).size() == k){
+        for(int i = 0; i<list1.size(); i++){//in this step, we are fixing the size of the list to as it was before we enter the inner loop, because while in the inner loop, we are updating this list.
+            if(list1.get(i).size() == k){//and had we set this i<list1.size(), we couldnt have worked on the elements priorly present in the loop since everytime this loop runs, list1.size() changes
                 final_list.add(list1.get(i));
             }
         }
