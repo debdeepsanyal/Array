@@ -1,17 +1,43 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class random {
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(getRandomArray(5)));
-
+    public static List<List<String>> partition(String s) {
+        List<List<String>> res = new ArrayList<>();
+        List<String> part = new ArrayList<>();
+        dfs(s, 0, part, res);
+        return res;
     }
-    private static int[] getRandomArray(int length){// a method which will return an array of type int[]
-        Random random = new Random();// here we are making an instance of the Random class
-        int[] array = new int[length];//initialising an array of user inputted length
-        for(int i = 0; i<length;i++){
-            array[i]=random.nextInt(0,10);//assigning a random variable to the array using thr nextInt function
+
+    private static void dfs(String s, int i, List<String> part, List<List<String>> res) {
+        if (i >= s.length()) {
+            res.add(new ArrayList<>(part));
+            return;
         }
-        return array;
+
+        for (int j = i; j < s.length(); j++) {
+            if (isPali(s, i, j)) {
+                part.add(s.substring(i, j + 1));
+                dfs(s, j + 1, part, res);
+                part.remove(part.size() - 1);
+            }
+        }
+    }
+
+    private static boolean isPali(String s, int l, int r) {
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(partition("aab"));
     }
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 public class SubSet {
@@ -28,7 +29,7 @@ public class SubSet {
     }
 
     public static void main(String[] args) {
-        System.out.println(subsets(new int[]{1,2,3,6,9}));
+        System.out.println(subsets(new int[]{1,2,3,4}));
     }
 }
 

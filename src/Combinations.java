@@ -7,8 +7,8 @@ public class Combinations {
         List<List<Integer>> final_list = new ArrayList<>();
         list1.add(new ArrayList<>());
         for(int num =1 ; num<=n; num++ ){
-            int j = list1.size();
-            for(int i = 0; i<j;i++){
+            int j = list1.size(); //in this step, we are fixing the size of the list to as it was before we enter the inner loop, because while in the inner loop, we are updating this list.
+            for(int i = 0; i<j;i++){ //and had we set this i<list1.size(), we couldnt have worked on the elements priorly present in the loop since everytime this loop runs, list1.size() changes
                 List<Integer> temp = new ArrayList<>(list1.get(i));
                 temp.add(num);
                 list1.add(temp);
@@ -23,7 +23,7 @@ public class Combinations {
     }
 
     public static void main(String[] args) {
-        System.out.println(combine(4,2));
+        System.out.println(combine(6,2));
     }
 }
 //so the approach to this problem is quite similar to our subsets problem. unlike the subsets problem,we are not provided with an array here, so we need to make 1.
